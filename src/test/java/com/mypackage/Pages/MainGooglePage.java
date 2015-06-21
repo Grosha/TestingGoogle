@@ -40,11 +40,6 @@ public class MainGooglePage {
         Assert.assertEquals(driver.getTitle(), "Google");
     }
 
-    //get title page
-    public String getTitlePage() {
-        return driver.getTitle();
-    }
-
     //method wait, until items appear
     public void waitElement(By locator) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -89,7 +84,7 @@ public class MainGooglePage {
                 driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
                 //display title
-                System.out.println(driver.getTitle()); //чи потрібно переоприділяти метод toString та виводити свої дані?
+                System.out.println(driver.getTitle());
 
                 //sleep
                 Thread.sleep(750);

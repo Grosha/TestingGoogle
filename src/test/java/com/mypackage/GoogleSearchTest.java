@@ -31,8 +31,6 @@ public class GoogleSearchTest {
     @Parameters({"query"})
     @Test
     public void testing(String query) throws InterruptedException, IOException {
-        //mainGooglePage.getTitlePage();
-
         //method check, that opens google search page
         mainGooglePage.checkStartGoogle();
 
