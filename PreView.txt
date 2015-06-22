@@ -1,9 +1,0 @@
-Тести потрібно запускати командою mvn clean install -Dquery="". 
-Приклад:
-<ol>
-  <li>mvn clean install -Dquery="champion"</li>
-  <li>mvn clean install -Dquery=ball</li>
-  <li>mvn clean install -Dquery="American precident"</li>
-</ol>
-
-
