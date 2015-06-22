@@ -1,0 +1,4 @@
+Тести потрібно запускати командою mvn clean install -Dquery="". 
+Приклад:
+mvn clean install -Dquery="champion"
+mvn clean install -Dquery="American precident"
