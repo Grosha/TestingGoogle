@@ -1,50 +1,24 @@
 package com.mypackage;
 
-import com.mypackage.Pages.MainGooglePage;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import com.mypackage.Pages.GooglePage;
 import org.testng.annotations.*;
 
 import java.io.IOException;
 
-public class GoogleSearchTest {
-    private WebDriver browser;
-    private MainGooglePage mainGooglePage;
-
-    //method of preparing the start page and the browser initializes variables
-    @BeforeClass
-    public void setUp() throws IOException {
-        //open firefox
-        browser = new FirefoxDriver();
-
-        //do maximize window browser
-        browser.manage().window().maximize();
-
-        //open page on browser
-        browser.get(MainGooglePage.startGoogleLink);
-
-        //initialize variable mainGooglePage
-        mainGooglePage = new MainGooglePage(browser);
-    }
-
+public class GoogleSearchTest extends GooglePage {
     //get data from console
     @Parameters({"query"})
     @Test
     public void testing(String query) throws InterruptedException, IOException {
         //method check, that opens google search page
-        mainGooglePage.checkStartGoogle();
+        checkStartGoogle("Google");
 
         //method write and search data in google
-        mainGooglePage.searchDataInGoogle(query);
+        searchDataInGoogle(query);
 
         //method, which opens new page, displays title and back to google page
-        mainGooglePage.openMewLink();
+        openNewLink();
     }
 
-    //method close browser
-    @AfterClass
-    public void setDown(){
-        browser.close();
-        browser.quit();
-    }
+
 }
