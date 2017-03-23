@@ -39,7 +39,7 @@ public class MacPageTest extends BaseTestApple {
     }
 
     @Test(dataProvider = "macToolbarSections")
-    public void openMacToolbar(By section, String titlePage, boolean tbIsTrue, By lToolbar) throws MalformedURLException, InterruptedException {
+    public void openMacToolbar(By section, String titlePage, boolean tbIsTrue, By lToolbar) throws IOException, InterruptedException {
         Thread.sleep(200);
         waitElement(locatorMacPage);
         MacPage.openSection(browser, locatorMacPage).click();
@@ -49,6 +49,7 @@ public class MacPageTest extends BaseTestApple {
         if (tbIsTrue == true) {
             waitElement(lToolbar);
             MacPage.findBrokenLinks(browser, lToolbar, lToolbar);
+            saveStandardScreen("standard" + titlePage + "Toolbar", createScreenOneElement(lGetToolbarMacbook_));
         }
     }
 
@@ -58,10 +59,21 @@ public class MacPageTest extends BaseTestApple {
         MacPage.openSection(browser, locatorMacPage).click();
 
         Screenshot standardScreenshot = getScreenshot("standardMacPageToolbar.png");
-
         Screenshot newScreenshot = createScreenOneElement(lGetToolbar);
         saveNewScreen("newMacPageToolbar", newScreenshot);
+        saveResult(standardScreenshot, newScreenshot, "MacPageToolbarResult");
+    }
 
+    @Test
+    public void checkScreenshotMacBookPageToolbar() throws IOException, InterruptedException {
+        waitElement(locatorMacPage);
+        MacPage.openSection(browser, locatorMacPage).click();
+        waitElement(lMacMacbook);
+        MacPage.openSection(browser, lMacMacbook).click();
+
+        Screenshot standardScreenshot = getScreenshot("standardMacPageToolbar.png");
+        Screenshot newScreenshot = createScreenOneElement(lGetToolbar);
+        saveNewScreen("newMacPageToolbar", newScreenshot);
         saveResult(standardScreenshot, newScreenshot, "MacPageToolbarResult");
     }
 

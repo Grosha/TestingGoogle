@@ -33,6 +33,7 @@ public interface Locators {
     By lMacCompare = By.linkText("Compare");
 
     //macbook toolbar
+    By lGetToolbarMacbook_ = By.id("ac-localnav");
     By lGetToolbarMacbook = By.xpath(".//a[ancestor::div[@class='ac-ln-content']]");
     By lGetToolbarMacbookMacPro = By.xpath(".//a[ancestor::ul[@class='destinations selfclear']]");
     By lGetToolbarMacbookAccessorise = By.className("localnav-disclosure-button hide-outline");
