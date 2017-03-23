@@ -19,6 +19,7 @@ public interface Locators {
     By locatorBagPage = By.cssSelector(".ac-gn-link.ac-gn-link-bag");
 
     //mac's toolbar
+    By lGetToolbar = By.className("chapternav");
     By lGetToolbarUrl = By.className("chapternav-link");
     By lGetToolbarItems = By.className("chapternav-label");
     By lMacMacbook = By.linkText("MacBook");
