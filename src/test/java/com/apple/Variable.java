@@ -28,6 +28,6 @@ public interface Variable {
     //macbook toolbar
 
     //way for screenhots
-    String screenshotsWay = "/home/groshkka/Dev/Projects/IdeaProjects/TestingGoogle/applescreenshots/";
+    String screenshotsWay = "/home/groshkka/Dev/Projects/IdeaProjects/TestingGoogle/applescreenshots/standard/";
 
 }

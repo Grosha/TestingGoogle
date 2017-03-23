@@ -92,19 +92,25 @@ public class BaseTestApple implements Locators, Variable {
     }
 
     public Screenshot createScreenOneElement(By by) {
+        waitElement(by);
         return new AShot()
                 .coordsProvider(new WebDriverCoordsProvider())
                 .takeScreenshot(browser, $(by));
     }
 
-    public void saveScreen(String fileName, Screenshot screenshot) throws IOException {
-        File actualFile = new File("applescreenshots/" + fileName + ".png");
+    public void saveNewScreen(String fileName, Screenshot screenshot) throws IOException {
+        File actualFile = new File("applescreenshots/new/" + fileName + ".png");
+        ImageIO.write(screenshot.getImage(), "png", actualFile);
+    }
+
+    public void saveStandardScreen(String fileName, Screenshot screenshot) throws IOException {
+        File actualFile = new File("applescreenshots/standard/" + fileName + ".png");
         ImageIO.write(screenshot.getImage(), "png", actualFile);
     }
 
     public void saveResult(Screenshot screenshot, Screenshot screenshot1, String fileName) throws IOException {
         ImageDiff diff = new ImageDiffer().makeDiff(screenshot, screenshot1);
-        File diffFile = new File("applescreenshots/" + fileName + ".png");
+        File diffFile = new File("applescreenshots/result/" + fileName + ".png");
         ImageIO.write(diff.getMarkedImage(), "png", diffFile);
         assertEquals(diff.getDiffSize(), 0);
     }

@@ -4,13 +4,10 @@ import com.apple.pages.MacPage;
 import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
-import ru.yandex.qatools.ashot.coordinates.WebDriverCoordsProvider;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.util.Set;
 
 import static org.testng.Assert.assertEquals;
 
@@ -60,15 +57,12 @@ public class MacPageTest extends BaseTestApple {
         waitElement(locatorMacPage);
         MacPage.openSection(browser, locatorMacPage).click();
 
-        /*Screenshot screenshot = createScreenOneElement(lGetToolbar);
-        saveScreen("etalonMacPageToolbar", screenshot);*/
-
-        Screenshot etalonScreenshot = getScreenshot("etalonMacPageToolbar.png");
+        Screenshot standardScreenshot = getScreenshot("standardMacPageToolbar.png");
 
         Screenshot newScreenshot = createScreenOneElement(lGetToolbar);
-        saveScreen("newMacPageToolbar", newScreenshot);
+        saveNewScreen("newMacPageToolbar", newScreenshot);
 
-        saveResult(etalonScreenshot, newScreenshot, "MacPageToolbarResult");
+        saveResult(standardScreenshot, newScreenshot, "MacPageToolbarResult");
     }
 
 }
